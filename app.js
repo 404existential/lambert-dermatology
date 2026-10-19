@@ -5,6 +5,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
+  initServiceSelect();
   initContactForm();
 });
 
@@ -42,7 +43,39 @@ function initNavbar() {
 }
 
 /* ==========================================================================
-   2. APPOINTMENT FORM SUBMISSION
+   2. SERVICE CARD BUTTON SELECTION
+   ========================================================================== */
+function initServiceSelect() {
+  const serviceButtons = document.querySelectorAll('.select-service-trigger');
+  const serviceDropdown = document.getElementById('userService');
+  const contactSection = document.getElementById('contact');
+
+  serviceButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetService = btn.getAttribute('data-service');
+      if (serviceDropdown && targetService) {
+        for (let i = 0; i < serviceDropdown.options.length; i++) {
+          if (serviceDropdown.options[i].value === targetService || 
+              serviceDropdown.options[i].text.toLowerCase().includes(targetService.toLowerCase())) {
+            serviceDropdown.selectedIndex = i;
+            break;
+          }
+        }
+      }
+
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+        const nameInput = document.getElementById('userName');
+        if (nameInput) {
+          setTimeout(() => nameInput.focus(), 600);
+        }
+      }
+    });
+  });
+}
+
+/* ==========================================================================
+   3. APPOINTMENT FORM SUBMISSION
    ========================================================================== */
 function initContactForm() {
   const form = document.getElementById('contactForm');

@@ -1,39 +1,38 @@
 /* ==========================================================================
-   LAMBERT DERMATOLOGY // Clean Minimalist Clinical Aesthetics
+   LAMBERT DERMATOLOGY // Design System
    Inspired by Hostinger Lambert Template: Calm, Airy, Whitespace-Driven
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 :root {
-  /* Lambert Warm Clean Palette */
   --bg-page: #FAF8F5;
   --bg-white: #FFFFFF;
   --bg-subtle: #F2EEE9;
-  --bg-tint: #E8EFEA;
+  --bg-tint: #EEF4F0;
   
-  --text-dark: #202422;
-  --text-body: #4F5955;
-  --text-muted: #7E8A85;
+  --text-dark: #1E2421;
+  --text-body: #4A5650;
+  --text-muted: #7A8782;
   
-  --color-accent: #3E5A4E;       /* Calm clinical sage */
-  --color-accent-hover: #2E453B;
+  --color-accent: #3E5A4E;       /* Calm medical eucalyptus */
+  --color-accent-hover: #2D4239;
   --color-accent-light: #EEF4F0;
-  --color-warm: #C8A97E;         /* Gentle champagne touch */
+  --color-gold: #C29B62;
 
-  --border-color: rgba(32, 36, 34, 0.08);
-  --border-subtle: rgba(32, 36, 34, 0.05);
+  --border-color: rgba(30, 36, 33, 0.08);
+  --border-card: rgba(30, 36, 33, 0.06);
 
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
   --radius-pill: 999px;
 
   --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.06);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.06);
 
   --transition: 0.25s ease;
 }
@@ -82,21 +81,21 @@ img {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR (LAMBERT STYLE: MINIMAL & CLEAN)
+   NAVIGATION BAR
    ========================================================================== */
 .site-nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(250, 248, 245, 0.95);
-  backdrop-filter: blur(10px);
+  background-color: rgba(250, 248, 245, 0.96);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
-  transition: background-color var(--transition);
+  transition: background-color var(--transition), box-shadow var(--transition);
 }
 
 .site-nav.scrolled {
   background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
 }
 
 .nav-inner {
@@ -136,7 +135,6 @@ img {
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-dark);
-  position: relative;
   padding: 0.3rem 0;
 }
 
@@ -150,7 +148,6 @@ img {
   gap: 1rem;
 }
 
-/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -164,6 +161,7 @@ img {
   transition: var(--transition);
   cursor: pointer;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -188,7 +186,6 @@ img {
   background-color: var(--bg-white);
 }
 
-/* Mobile Toggle */
 .mobile-toggle {
   display: none;
   flex-direction: column;
@@ -206,7 +203,6 @@ img {
   background-color: var(--text-dark);
 }
 
-/* Mobile Menu */
 .mobile-menu {
   display: none;
   background-color: var(--bg-white);
@@ -233,10 +229,10 @@ img {
 }
 
 /* ==========================================================================
-   HERO SECTION (LAMBERT SPLIT & SERENE BANNER)
+   HERO SECTION
    ========================================================================== */
 .hero-section {
-  padding: 4.5rem 0 5rem;
+  padding: 4.5rem 0 5.5rem;
 }
 
 .hero-layout {
@@ -324,7 +320,7 @@ img {
 }
 
 /* ==========================================================================
-   ABOUT SECTION (DOCTOR INTRODUCTION)
+   ABOUT SECTION
    ========================================================================== */
 .about-section {
   padding: 6rem 0;
@@ -362,11 +358,17 @@ img {
 
 .section-heading {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   font-weight: 400;
   line-height: 1.25;
   color: var(--text-dark);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.section-subtext {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
 }
 
 .about-text p {
@@ -377,9 +379,6 @@ img {
 
 .about-signature {
   margin-top: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
 }
 
 .doctor-name-title {
@@ -394,7 +393,7 @@ img {
 }
 
 /* ==========================================================================
-   SERVICES SECTION (CLEAN MINIMAL GRID)
+   SERVICES SECTION (REFINED & CLEAN)
    ========================================================================== */
 .services-section {
   padding: 6.5rem 0;
@@ -402,8 +401,8 @@ img {
 
 .section-header-center {
   text-align: center;
-  max-width: 620px;
-  margin: 0 auto 4rem;
+  max-width: 640px;
+  margin: 0 auto 3.5rem;
 }
 
 .services-grid {
@@ -429,7 +428,7 @@ img {
 }
 
 .service-image-box {
-  height: 220px;
+  height: 210px;
   overflow: hidden;
 }
 
@@ -445,44 +444,88 @@ img {
 }
 
 .service-body {
-  padding: 1.75rem;
+  padding: 1.75rem 1.75rem 1.5rem;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
+.service-category-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  margin-bottom: 0.4rem;
+}
+
 .service-title {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 500;
   color: var(--text-dark);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .service-desc {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   color: var(--text-body);
   line-height: 1.65;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   flex: 1;
 }
 
-.service-link {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  display: inline-flex;
+.service-footer {
+  display: flex;
   align-items: center;
-  gap: 0.35rem;
+  justify-content: space-between;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
 }
 
-.service-link:hover {
+.service-duration {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.service-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color var(--transition);
+}
+
+.service-btn:hover {
   color: var(--color-accent-hover);
   text-decoration: underline;
 }
 
+.services-footer-banner {
+  text-align: center;
+  margin-top: 3.5rem;
+  padding: 2.5rem;
+  background-color: var(--bg-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-subtle);
+}
+
+.services-footer-banner p {
+  font-size: 1.05rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
 /* ==========================================================================
-   WHY CHOOSE US / PRACTICE VALUES (3-SPLIT LAMBERT HIGHLIGHTS)
+   WHY CHOOSE US
    ========================================================================== */
 .why-section {
   padding: 5.5rem 0;
@@ -522,7 +565,7 @@ img {
 }
 
 /* ==========================================================================
-   TESTIMONIAL QUOTE (MINIMAL ELEGANCE)
+   TESTIMONIAL
    ========================================================================== */
 .testimonial-section {
   padding: 6.5rem 0;
@@ -564,7 +607,7 @@ img {
 }
 
 /* ==========================================================================
-   APPOINTMENT & CONTACT SECTION (LAMBERT FORM + DETAILS)
+   APPOINTMENT & CONTACT
    ========================================================================== */
 .contact-section {
   padding: 6rem 0;
@@ -613,11 +656,6 @@ img {
   font-size: 1.05rem;
   color: var(--text-dark);
   font-weight: 500;
-}
-
-.contact-form-wrap {
-  display: flex;
-  flex-direction: column;
 }
 
 .form-title {
@@ -681,7 +719,7 @@ img {
 }
 
 /* ==========================================================================
-   FOOTER (MINIMAL CLEAN)
+   FOOTER
    ========================================================================== */
 .site-footer {
   padding: 4rem 0 2.5rem;
